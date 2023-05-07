@@ -3,6 +3,9 @@ const { Routers, Locale } = require('discord.js');
 
 const { token } = require('../config.json');
 
+const Event = require('./event');
+const Interaction = require('./interaction');
+
 module.exports = class util {
     constructor(client) {
         this.client = client;
