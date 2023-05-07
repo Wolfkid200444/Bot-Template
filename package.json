@@ -1,13 +1,13 @@
 {
   "name": "bot-template",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "bot template",
+  "main": "src/bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "main": "node src/bot.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "wolfkid200444",
   "license": "ISC",
   "dependencies": {
     "@discordjs/rest": "^1.7.1",
