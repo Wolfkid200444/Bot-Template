@@ -3,8 +3,7 @@ export default class Interaction {
 		this.name = name;
 		this.client = client;
 		this.type = options.type || 1;
-		this.description =
-      this.type === 1 ? options.description || 'No description provided.' : undefined;
+		this.description = this.type === 1 ? options.description || 'No description provided.' : undefined;
 		this.options = options.options || [];
 	}
 

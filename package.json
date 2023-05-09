@@ -3,24 +3,25 @@
   "version": "1.0.0",
   "description": "bot template",
   "main": "src/bot.js",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
   "scripts": {
     "main": "node src/bot.js",
-    "prettier:check": "prettier ./src --check",
     "eslint:check": "eslint ./src",
-    "prettier:fix": "prettier ./src --write",
     "eslint:fix": "eslint ./src --fix",
-    "lint": "pnpm run prettier:check && pnpm run eslint:check",
-    "lint:fix": "pnpm run prettier:fix && pnpm run eslint:fix"
+    "lint": "pnpm run eslint:check",
+    "lint:fix": "pnpm run eslint:fix"
   },
   "keywords": [],
   "author": "wolfkid200444",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@discordjs/rest": "^1.7.1",
     "discord.js": "^14.11.0"
   },
   "devDependencies": {
-    "eslint": "^8.40.0",
-    "prettier": "^2.8.8"
+    "eslint": "^8.40.0"
   }
 }
