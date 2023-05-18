@@ -1,19 +1,22 @@
 import { REST } from '@discordjs/rest';
-import { Routers } from 'discord.js';
+import { Routes } from 'discord.js';
 import fs from 'fs/promises';
 import path from 'path';
 
-import { token } from '../config.json';
+import * as dotenv from 'dotenv';
+dotenv.config();
+const token = process.env.TOKEN as string;
 
-import Event from './event';
-import Interaction from './interaction';
+import Event from '../event.js';
+import Interaction from '../interaction.js';
 
-export default class util {
-	constructor(client) {
+export default class Util {
+	client: Client;
+	constructor(client: Client) {
 		this.client = client;
 	}
 
-	isClass(input) {
+	isClass(input: Function) {
 		return (
 			typeof input === 'function' &&
 			typeof input.prototype === 'object' &&
@@ -22,7 +25,7 @@ export default class util {
 	}
 
 	get directory() {
-		return `${path.dirname(require.main.filename)}${path.sep}`;
+		return `${path.dirname(require?.main?.filename)}${path.sep}`;
 	}
 
 	async *loadFiles(dir) {
@@ -56,7 +59,7 @@ export default class util {
 		}
 	}
 
-	async LoadInteractions() {
+	async loadInteractions() {
 		const int = [];
 		for await (const interactionFile of this.loadFiles(`${this.directory}interactions`)) {
 			delete require.cache[interactionFile];
@@ -73,7 +76,7 @@ export default class util {
 		}
 		try {
 			const res = new REST({ version: '10' }).setToken(token);
-			await res.put(Routers.applicationCommands(this.client.user.id), {
+			await res.put(Routes.applicationCommands(this.client.user.id), {
 				body: int,
 			});
 		}

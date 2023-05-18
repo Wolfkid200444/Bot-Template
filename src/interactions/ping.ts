@@ -1,4 +1,4 @@
-import Interaction from '../structures/interaction';
+import Interaction from '../interaction';
 
 export default class extends Interaction {
 	constructor(...args) {

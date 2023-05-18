@@ -1,4 +1,4 @@
-import Event from '../structures/event';
+import Event from '../../event';
 
 export default class extends Event {
 	async run(interaction) {

@@ -1,4 +1,9 @@
 export default class Event {
+	client: Client;
+	name: string;
+	type: string;
+	emitter: any;
+	
 	constructor(client, name, options = {}) {
 		this.name = name;
 		this.client = client;

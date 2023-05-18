@@ -1,4 +1,10 @@
 export default class Interaction {
+	client: Client;
+	name: string;
+	type: number;
+	description: string;
+	options: any[];
+
 	constructor(client, name, options = {}) {
 		this.name = name;
 		this.client = client;
