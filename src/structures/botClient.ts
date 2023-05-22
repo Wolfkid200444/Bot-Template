@@ -19,19 +19,19 @@ export default class BotClient extends Client {
 				GatewayIntentBits.GuildEmojisAndStickers,
 			],
 		});
+		this.validate(options as Configuration);
 		this.interactions = new Collection();
 		this.commands = new Collection();
 		this.events = new Collection();
-		this.validate(options);
 		this.util = new util(this);
 	}
 
-	validate(options) {
-		if (!options.token) throw new Error('You must pass the token for the client to work.');
+	validate(options: Configuration) {
+		if (!options.TOKEN) throw new Error('You must pass the token for the client to work.');
 		this.token = options.TOKEN;
 
-		if (!options.prefix) throw new Error('You must pass the prefix for the client to work.');
-		if (typeof options.prefix !== 'string') throw new TypeError('Prefix must be a string.');
+		if (!options.PREFIX) throw new Error('You must pass the prefix for the client to work.');
+		if (typeof options.PREFIX !== 'string') throw new TypeError('Prefix must be a string.');
 		this.prefix = options.PREFIX;
 	}
 

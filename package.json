@@ -9,7 +9,8 @@
     "pnpm": ">=8.0.0"
   },
   "scripts": {
-    "main": "node src/bot.js",
+    "main": "tsx ./src/bot.ts",
+    "dev": "tsx ./src/bot.ts --watch",
     "eslint:check": "eslint ./src",
     "eslint:fix": "eslint ./src --fix",
     "lint": "pnpm run eslint:check",
@@ -24,6 +25,9 @@
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "eslint": "^8.40.0"
+    "@types/node": "^20.2.1",
+    "esbuild": "^0.17.19",
+    "eslint": "^8.40.0",
+    "tsx": "^3.12.7"
   }
 }

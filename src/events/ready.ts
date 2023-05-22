@@ -10,6 +10,6 @@ export default class extends Event {
 	// eslint-disable-next-line no-unused-vars
 	async run(client, message, args) {
 		console.log(`Logged in as ${client.user.tag}!`);
-		this.client.user.setActivity('!help', { type: ActivityType.Listening });
+		this.client.user.setActivity('/help', { type: ActivityType.Listening });
 	}
 }

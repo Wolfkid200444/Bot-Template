@@ -4,7 +4,7 @@ export default class Event {
 	type: string;
 	emitter: any;
 	
-	constructor(client, name, options = {}) {
+	constructor(client: Client, name: string, options = {}) {
 		this.name = name;
 		this.client = client;
 		this.type = options.once ? 'once' : 'on';
