@@ -10,12 +10,18 @@ import Interaction from "../interaction.js";
 
 dotenv.config();
 
-const token = process.env.TOKEN;
+const token = process.env.TOKEN as string;
 
 export default class Util {
   client: Client;
   constructor(client: Client) {
     this.client = client;
+  }
+
+  errorMessage(error: unknown) {
+    if (error instanceof Error) return error;
+    return new Error(JSON.stringify(error));
+
   }
 
   isClass(input: Function) {
@@ -32,7 +38,7 @@ export default class Util {
     )}${path.sep}`;
   }
 
-  async *loadFiles(dir: string) {
+  async *loadFiles(dir: string): AsyncGenerator<string> {
     const EXTENSION = ".json";
     const files = await fs.readdir(dir);
     const targetFiles = files.filter((file) => {
@@ -59,7 +65,7 @@ export default class Util {
       if (!(event instanceof Event))
         throw new TypeError(`Event ${name} doesn't belong in events.`);
       this.client.events.set(event.name, event);
-      event.emitter[event.type](name, (...args) => event.run(...args));
+      event.emitter[event.type](name, (...args: any) => event.run(...args));
     }
   }
 
@@ -94,7 +100,7 @@ export default class Util {
         }
       );
     } catch (err) {
-      throw new Error(err);
+      this.errorMessage(err);
     }
   }
 }
