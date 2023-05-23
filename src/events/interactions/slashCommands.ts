@@ -1,6 +1,6 @@
 import Event from '../../event';
 
-export default class extends Event {
+export default class SlashCommands extends Event {
 	async run(interaction) {
 		const cmd = this.client.interactions.get(interaction.commandName);
 		try {

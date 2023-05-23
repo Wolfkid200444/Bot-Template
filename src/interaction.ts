@@ -1,5 +1,5 @@
 export default class Interaction {
-	client: Client;
+	client?: Client;
 	name: string;
 	type: number;
 	description: string;

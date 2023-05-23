@@ -1,6 +1,6 @@
 import Interaction from '../interaction';
 
-export default class extends Interaction {
+export default class Ping extends Interaction {
 	constructor(...args) {
 		super(...args, {
 			name: 'ping',

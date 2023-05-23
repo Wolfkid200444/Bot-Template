@@ -10,7 +10,7 @@
   },
   "scripts": {
     "main": "tsx ./src/bot.ts",
-    "dev": "tsx ./src/bot.ts --watch",
+    "dev": "tsx watch ./src/bot.ts",
     "eslint:check": "eslint ./src",
     "eslint:fix": "eslint ./src --fix",
     "lint": "pnpm run eslint:check",

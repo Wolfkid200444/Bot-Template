@@ -1,6 +1,6 @@
 import Event from '../event';
 import { ActivityType } from 'discord.js';
-export default class extends Event {
+export default class Ready extends Event {
 	constructor(...args) {
 		super(...args, {
 			once: true,
