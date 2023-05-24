@@ -18,13 +18,13 @@ export default class Util {
     this.client = client;
   }
 
-  errorMessage(error: unknown) {
+  public errorMessage(error: unknown) {
     if (error instanceof Error) return error;
     return new Error(JSON.stringify(error));
 
   }
 
-  isClass(input: Function) {
+  public isClass(input: Function) {
     return (
       typeof input === "function" &&
       typeof input.prototype === "object" &&
@@ -32,13 +32,13 @@ export default class Util {
     );
   }
 
-  get directory() {
+  public get directory() {
     return `${path.dirname(
       path.join(fileURLToPath(`${new URL(import.meta.url)}`), "..")
     )}${path.sep}`;
   }
 
-  async *loadFiles(dir: string): AsyncGenerator<string> {
+  private async *loadFiles(dir: string): AsyncGenerator<string> {
     const EXTENSION = ".json";
     const files = await fs.readdir(dir);
     const targetFiles = files.filter((file) => {
@@ -55,7 +55,7 @@ export default class Util {
     }
   }
 
-  async loadEvents() {
+  public async loadEvents() {
     for await (const eventFile of this.loadFiles(`${this.directory}events`)) {
       const { name } = path.parse(eventFile);
       const File  = await import(`file:///${eventFile}`);
@@ -65,11 +65,12 @@ export default class Util {
       if (!(event instanceof Event))
         throw new TypeError(`Event ${name} doesn't belong in events.`);
       this.client.events.set(event.name, event);
+      // @ts-ignore
       event.emitter[event.type](name, (...args: any) => event.run(...args));
     }
   }
 
-  async loadInteractions() {
+  public async loadInteractions() {
     const int = [];
     for await (const interactionFile of this.loadFiles(
       `${this.directory}interactions`
