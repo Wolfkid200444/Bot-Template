@@ -1,16 +1,17 @@
+import { Types, Bot } from "./types/types.d.ts";
 
-interface BotClient extends Client {
-	[key: string]: any;
+interface BotClient extends Bot.Client { 
+	[ key: string ]: unknown;
 }
 
 export default class Event {
-	client: BotClient;
-	name: string;
+	client?: BotClient;
+	name?: string;
 	type: Types.EventTypes;
-	emitter: Client | string;
+	emitter?: Bot.Client | string;
 	
 	
-	constructor(client: BotClient, name: string, options: { once?: boolean, emitter?: string } = {}) {
+	constructor(client: BotClient, name?: string, options: { once?: boolean, emitter?: string } = {}) {
 		this.name = name;
 		this.client = client;
 		this.type = options.once ? Types.EventTypes.ONCE : Types.EventTypes.ON;

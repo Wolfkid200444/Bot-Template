@@ -1,14 +1,14 @@
 import BotClient from "../structures/botClient";
 
-declare global {
-  type Client = BotClient;
-
-  interface Configuration {
+export declare namespace Bot {
+  export interface Configuration {
     TOKEN: string;
   }
-}
 
-declare namespace Types {
+  export type Client = BotClient;
+
+}
+export declare namespace Types {
 
   export enum EventTypes {
     ONCE = "once",

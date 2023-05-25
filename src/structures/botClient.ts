@@ -1,5 +1,6 @@
 import { Client, GatewayIntentBits, Collection } from 'discord.js';
 import util from './utils.js';
+import { Bot } from '../types/types';
 
 export default class BotClient extends Client {
 	util: util;
@@ -17,14 +18,14 @@ export default class BotClient extends Client {
 				GatewayIntentBits.GuildEmojisAndStickers,
 			],
 		});
-		this.validate(options as Configuration);
+		this.validate(options as Bot.Configuration);
 		this.interactions = new Collection();
 		this.commands = new Collection();
 		this.events = new Collection();
 		this.util = new util(this);
 	}
 
-	validate(options: Configuration) {
+	validate(options: Bot.Configuration) {
 		if (!options.TOKEN) throw new Error('You must pass the token for the client to work.');
 		this.token = options.TOKEN;
 	}

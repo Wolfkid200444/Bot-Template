@@ -7,14 +7,15 @@ import * as dotenv from "dotenv";
 
 import Event from "../event.js";
 import Interaction from "../interaction.js";
+import { Bot } from "../types/types.js";
 
 dotenv.config();
 
 const token = process.env.TOKEN as string;
 
 export default class Util {
-  client: Client;
-  constructor(client: Client) {
+  client: Bot.Client;
+  constructor(client: Bot.Client) {
     this.client = client;
   }
 
