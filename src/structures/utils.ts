@@ -7,7 +7,6 @@ import * as dotenv from "dotenv";
 
 import Event from "../event.js";
 import Interaction from "../interaction.js";
-import { Bot } from "../types/types.js";
 
 dotenv.config();
 

@@ -1,6 +1,5 @@
 import { Client, GatewayIntentBits, Collection } from 'discord.js';
 import util from './utils.js';
-import { Bot } from '../types/types';
 
 export default class BotClient extends Client {
 	util: util;

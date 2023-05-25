@@ -11,13 +11,13 @@ interface InteractionOptions {
 	];
 }
 export default class Interaction {
-	client?: Client;
+	client?: Bot.Client;
 	name: string;
 	type: Types.InteractionType;
 	description: string;
 	options: InteractionOptions[];
 
-	constructor(client: Client, name: string, options: { type?: Types.InteractionType, description?: string, options?: InteractionOptions[] } = {}) {
+	constructor(client: Bot.Client, name: string, options: { type?: Types.InteractionType, description?: string, options?: InteractionOptions[] } = {}) {
 		this.name = name;
 		this.client = client;
 		this.type = options.type ?? 1;
