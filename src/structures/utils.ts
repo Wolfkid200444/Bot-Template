@@ -5,8 +5,8 @@ import * as path from "path";
 import { fileURLToPath } from "url";
 import * as dotenv from "dotenv";
 
-import Event from "../event.js";
-import Interaction from "../interaction.js";
+import Event from "../event.ts";
+import Interaction from "../interaction.ts";
 
 dotenv.config();
 
@@ -85,7 +85,7 @@ export default class Util {
           `Interaction ${name} doesn't belong in interactions.`
         );
       }
-      this.client.interactions.set(interaction.name, interaction);
+      this.client?.interactions.set(interaction.name, interaction);
       delete interaction.client;
       int.push(interaction);
     }

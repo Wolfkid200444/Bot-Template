@@ -9,8 +9,8 @@
     "pnpm": ">=8.0.0"
   },
   "scripts": {
-    "main": "tsx ./src/bot.ts",
-    "dev": "tsx watch ./src/bot.ts",
+    "main": "tsc --project tsconfig.json",
+    "dev": "tsx watch src/bot.ts",
     "check": "tsc --noEmit",
     "eslint:check": "eslint ./src",
     "eslint:fix": "eslint ./src --fix",

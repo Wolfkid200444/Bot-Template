@@ -4,3 +4,6 @@ node_modules
 # Dotenv environment variables file
 .env
 .config.json
+
+# Build directory
+dist

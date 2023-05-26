@@ -1,4 +1,4 @@
-import BotClient from "../structures/botClient";
+import BotClient from "../src/structures/botClient";
 
 declare global {
   namespace Bot {
