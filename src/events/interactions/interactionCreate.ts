@@ -1,7 +1,9 @@
+import type { CommandInteraction } from 'discord.js';
 import Event from '../../event';
 
 export default class InteractionCreate extends Event {
-	async run(interaction) {
-		if (interaction.isChatInputCommand()) return this.client.emit('slashCommands', interaction);
+	// @ts-ignore
+	async run(interaction: CommandInteraction) {
+		if (interaction.isChatInputCommand()) return this.client?.emit('slashCommands', interaction);
 	}
 }

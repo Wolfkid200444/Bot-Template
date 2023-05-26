@@ -1,8 +1,10 @@
+import type { CommandInteraction } from 'discord.js';
 import Event from '../../event';
 
+
 export default class SlashCommands extends Event {
-	async run(interaction) {
-		const cmd = this.client.interactions.get(interaction.commandName);
+	async run(interaction: CommandInteraction) {
+		const cmd = this.client?.interactions.get(interaction.commandName);
 		try {
 			return await cmd.run(interaction);
 		}

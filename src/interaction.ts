@@ -26,7 +26,7 @@ export default class Interaction {
 	}
 
 	// eslint-disable-next-line no-unused-vars
-	async run(interaction: unknown[]) {
+	async run(...interaction: unknown[]) {
 		throw new Error(`Interaction ${this.name} doesn't provide a run method!`);
 	}
 }
