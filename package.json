@@ -14,8 +14,10 @@
     "check": "tsc --noEmit",
     "eslint:check": "eslint ./src",
     "eslint:fix": "eslint ./src --fix",
-    "lint": "pnpm run eslint:check",
-    "lint:fix": "pnpm run eslint:fix"
+    "prettier:check": "prettier --check ./src",
+    "prettier:fix": "prettier --write ./src",
+    "lint": "pnpm run eslint:check && pnpm run prettier:check",
+    "lint:fix": "pnpm run eslint:fix && pnpm run prettier:fix"
   },
   "keywords": [],
   "author": "wolfkid200444",
@@ -29,6 +31,7 @@
     "@types/node": "^20.2.1",
     "esbuild": "^0.17.19",
     "eslint": "^8.40.0",
+    "prettier": "^2.8.8",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   }
