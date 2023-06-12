@@ -3,9 +3,8 @@ import { ActivityType } from 'discord.js';
 
 export default class Ready extends Event {
     constructor(...args: ConstructorParameters<typeof Event>) {
-        super(...args, {
-            once: true,
-        });
+        // @ts-ignore
+        super(...args, { once: true });
     }
 
     async run(client: Bot.Client) {

@@ -20,6 +20,7 @@ export default class Event {
         this.name = name;
         this.client = client;
         this.type = options.once ? EventTypes.ONCE : EventTypes.ON ?? EventTypes.ON;
+        // @ts-ignore
         this.emitter =
             (options.emitter &&
                 (typeof options.emitter === 'string'

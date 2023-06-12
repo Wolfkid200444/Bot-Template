@@ -2,7 +2,7 @@ const { TextChannel } = require('discord.js');
 
 const originalSend = TextChannel.prototype.send;
 
-TextChannel.prototype.send = function (...arg) {
+TextChannel.prototype.send = function (...arg: any[]) {
     const send = originalSend.bind(this);
 
     if (!this.permissionsFor(this.client.user).has('SEND_MESSAGES')) return;

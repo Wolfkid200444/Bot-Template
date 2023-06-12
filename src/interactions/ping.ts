@@ -3,6 +3,7 @@ import Interaction from '../interaction.ts';
 
 export default class Ping extends Interaction {
     constructor(...args: ConstructorParameters<typeof Interaction>) {
+        // @ts-ignore
         super(...args, {
             name: 'ping',
             description: 'Ping!',
